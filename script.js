@@ -114,4 +114,3 @@ showModalButton.addEventListener("click", () => {
     modal.classList.toggle("modal-open")
 })
 
-console.log("end")
