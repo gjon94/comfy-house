@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 5vh;
+    list-style: none;
+}
+
+#cart{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal{
+    position: fixed; 
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+    background-color: rgba(2, 2, 2, 0.5);
+    right: 0;
+    left: 100%;
+    transition: all .5s;
+    overflow: hidden;
+    z-index: 500;
+}
+.modal-open{
+    left: 0;
+    
+}
+  
+
+
+.modal-content{
+   min-width: 30%;
+    background-color: white;
+    z-index: 100;
+}
+
+
+#wallpaper_bg {
+    min-height: 50vh;
+    background-image: url("https://www.contemporist.com/wp-content/uploads/2014/10/lh_161014_09.jpg");
+    background-position: center center;
+}
+
+
+#products_wrapper {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+
+.product_card {
+    height: 200px;
+    width: 300px;
+    position: relative;
+    text-align: center;
+}
+
+.img_container {
+    inset: 100%;
+}
+
+.img_container>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.add_cart {
+    opacity: 0;
+    transition: all 1s;
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    height: 50px;
+    width: 50%;
+    background-color: red;
+
+}
+
+.product_card:hover .add_cart {
+    opacity: 1;
+
+}
