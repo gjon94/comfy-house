@@ -86,6 +86,8 @@ const productsList = [
     new ProductsFactory("letto_4", 11),
     new ProductsFactory("letto_5", 72),
     new ProductsFactory("letto_6", 42),
+    new ProductsFactory("letto_7", 42),
+    new ProductsFactory("letto_8", 42),
 ]
 
 
