@@ -18,17 +18,26 @@ class ProductsFactory {
         button.classList.add("add_cart")
         button.textContent = "add"
 
+        setInterval(()=>this.choice ? button.textContent="nel carrello" :button.textContent="add")
         let h6 = document.createElement("h6")
         h6.textContent = this.name
 
+        let span = document.createElement("span")
+        span.textContent = this.price
+
+
         section.innerHTML = `<div class="img_container">
                 <img src="https://comfy-house-javascript.netlify.app/images/product-1.jpeg" alt="">
-               </div>
-               <h6>${this.name}</h6>
-               <span>${this.price}</span>
-        `
+               </div>`;
+
+
         section.appendChild(button)
-        button.addEventListener("click", () => add_to_cart(this, button))
+        section.append(h6)
+        section.append(span)
+
+        
+        button.addEventListener("click", () => this.choice++)
+
         return section
     }
 
@@ -37,17 +46,20 @@ class ProductsFactory {
         let buttonIncrement = document.createElement("button")
         let buttonDecrement = document.createElement("button")
         let h3 = document.createElement("h3")
-        h3.textContent = this.choice
+
+        
         buttonIncrement.textContent = "aggiungi +"
         buttonDecrement.textContent = "rimuovi -"
+
         section.append(buttonIncrement)
         section.append(h3)
         section.append(buttonDecrement)
-
+        h3.textContent = this.choice
         setInterval(()=>h3.textContent = this.choice,1000)
 
         buttonIncrement.addEventListener("click", () => incrementChoice(this, h3))
         buttonDecrement.addEventListener("click", () => decrementChoice(this, h3))
+
         return section
     }
 }
@@ -86,12 +98,7 @@ productsList.forEach((el) => {
 })
 
 
-function add_to_cart(self, htmlElement) {
-    self.choice++
-    htmlElement.textContent = self.choice ? "nel carrello" : "add"
 
-    console.log(self.choice)
-}
 
 // MODAL FUNCTIONS 
 const modal = document.querySelector("#modal")
